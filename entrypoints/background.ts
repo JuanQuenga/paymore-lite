@@ -142,6 +142,19 @@ export default defineBackground({
           const err = chrome.runtime.lastError;
           if (err) log("openPopup error", err.message);
         });
+      } else if (command === "open-voice") {
+        log("Voice popup shortcut triggered");
+        try {
+          chrome.windows.create({
+            url: chrome.runtime.getURL("voice.html"),
+            type: "popup",
+            width: 420,
+            height: 560,
+            focused: true,
+          });
+        } catch (e) {
+          log("open-voice open error", e?.message || e);
+        }
       } else if (command === "open-controller-testing") {
         log("Controller testing shortcut triggered");
         // Open the controller testing sidepanel
@@ -263,6 +276,20 @@ export default defineBackground({
       if (message.type === "EXTENSION_HEALTH_CHECK") {
         log("Extension health check received from tab:", sender.tab?.id);
         sendResponse({ status: "healthy", timestamp: Date.now() });
+        return true;
+      }
+
+      // Relay incoming transcripts to active tab (content script)
+      if (message?.action === "pm-voice-transcript") {
+        try {
+          sendToActiveTab({
+            action: "pm-voice-transcript",
+            interim: !!message.interim,
+            text: String(message.text || ""),
+            timestampMs: Date.now(),
+          });
+        } catch (_) {}
+        sendResponse({ ok: true });
         return true;
       }
 
@@ -949,9 +976,7 @@ export default defineBackground({
                 log("sidePanel open lastError", err.message);
               } else {
                 SIDE_PANEL_STATE.set(id, { open: true, tool: desiredTool });
-                log(
-                  `Sidepanel opened for tool: ${desiredTool} on tab: ${id}`
-                );
+                log(`Sidepanel opened for tool: ${desiredTool} on tab: ${id}`);
               }
             });
           } catch (openErr) {
@@ -969,7 +994,9 @@ export default defineBackground({
           return;
         }
 
-        log("toggleSidePanelForTab: could not resolve tab id immediately; querying");
+        log(
+          "toggleSidePanelForTab: could not resolve tab id immediately; querying"
+        );
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
           const active = tabs && tabs[0];
           const fallbackId = asValidTabId(active?.id);

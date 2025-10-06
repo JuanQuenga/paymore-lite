@@ -119,6 +119,25 @@ export default defineContentScript({
       window.requestAnimationFrame(pollForInput);
     };
 
+    // Voice transcript injection listener
+    try {
+      window.addEventListener("message", (e: any) => {
+        // reserved for future page-level events
+      });
+      chrome.runtime.onMessage.addListener((message: any) => {
+        if (message?.action === "pm-voice-transcript") {
+          try {
+            import("../src/utils/transcript-injector").then((m) => {
+              m.handleTranscriptMessage({
+                interim: !!message.interim,
+                text: String(message.text || ""),
+              });
+            });
+          } catch (_) {}
+        }
+      });
+    } catch (_) {}
+
     // Start polling loop once the document is ready
     // Add a small delay to prevent immediate triggering on page load
     setTimeout(() => {

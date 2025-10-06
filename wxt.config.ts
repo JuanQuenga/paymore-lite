@@ -61,6 +61,13 @@ export default defineConfig({
         },
         description: "Open Command Popup",
       },
+      "open-voice": {
+        suggested_key: {
+          default: "Ctrl+Shift+V",
+          mac: "Command+Shift+V",
+        },
+        description: "Open Voice Popup",
+      },
       "open-options": {
         suggested_key: {
           default: "Ctrl+O",
