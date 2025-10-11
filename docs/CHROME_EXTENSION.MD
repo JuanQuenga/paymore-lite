@@ -1,36 +1,69 @@
-Paymore Lite Chrome Extension — for Paymore staff
+Paymore Lite Chrome Extension
 
-The Paymore Lite Chrome Extension is a streamlined browser extension designed specifically for Paymore staff to enhance productivity with quick navigation, search capabilities, and built-in controller testing. This lite version focuses on core functionality, providing a powerful command palette interface for instant access to bookmarks, browsing history, open tabs, and multi-platform search. Built with efficiency in mind, it integrates with multiple popular platforms. With Quick Links integration from Google Sheets and customizable command sources, the extension streamlines daily workflows for Paymore staff.
+The Paymore Lite Chrome Extension is a powerful productivity browser extension that enhances your workflow with lightning-fast navigation, comprehensive search capabilities, and intelligent shortcuts. This streamlined extension provides a command palette interface for instant access to your bookmarks, browsing history, open tabs, and multi-platform search across 10+ popular websites. Built for efficiency, it includes smart context menu options and customizable features to optimize your daily browsing experience.
 
-### v1.0.1 - v1.0.2 - Ebay Category Suggestion
+### v1.0.3 - Enhanced Context Menu & Smart Caching
 
-The command menu now uses eBay Taxonomy API to quickly give you a matching eBay Category for your query/search input. Simply click or hit `Enter` on the suggestion to copy it to your clipboard. General bug fixes were also pushed in this update.
+This update introduces powerful right-click search options that let you instantly search selected text across multiple platforms including UPCItemDB, Google (for UPCs and MPNs), and PriceCharting. We've also improved the Quick Links caching system for faster loading and a smoother user experience, along with a redesigned install page with clearer instructions.
 
-### v1.0.0 - Initial Lite Release
+### v1.0.2 - eBay Category Suggestions
 
-This is the first release of Paymore Lite, featuring:
+The command menu now integrates with eBay's Taxonomy API to instantly suggest matching eBay categories for your search queries. Simply click or press `Enter` on any suggestion to copy it to your clipboard. This update also includes improved command menu navigation and customizable source ordering.
 
-- **Command Menu** - Press `CMD+Shift+K` to open an Arc-style command palette that gives you instant access to everything
-- **Your bookmarks at your fingertips** - Quickly access your 20 most recently saved bookmarks
-- **Recent browsing history** - Jump back to any of your last 30 visited pages instantly
-- **10 built-in search engines** - Search multiple popular platforms all from one place
-- **Lightning-fast tab switching** - See all your open tabs and switch between them with just a few keystrokes
-- **Quick Links integration** - Access all those useful links from our Google Sheets, cached for 30 minutes so they're always fast
-- **Keyboard shortcuts galore** - Multiple shortcuts to boost your productivity throughout the day
+### v1.0.1 - Bug Fixes
 
-Key Features:
+Fixed UPC Item Database search functionality for more accurate product lookups.
 
-- **Command Menu** - Press `CMD+Shift+K` to access all features quickly
-- **Bookmarks & History** - Access your 20 most recent bookmarks and last 30 visited pages
-- **Multi-Engine Search** - Search across 10 platforms from one interface
-- **Better Tab Navigation** - Switch between open tabs efficiently
-- **Quick Links** - Access useful resources from Google Sheets
-- **Customizable** - Press `CMD+O` to configure which command menu features are enabled and what order they appear in the list.
+---
 
-Get started:
+## Key Features
 
-1. Install from the Chrome Web Store and pin the icon.
-2. Press `CMD+Shift+K` to open the command palette.
-3. Use `CMD+O` to customize your settings.
+### ⚡ Command Palette
 
-Need help? Email support@paymore.com.
+Press `CMD+Shift+K` (or `CTRL+Shift+K` on Windows/Linux) to open an Arc-style command palette that gives you instant access to everything:
+
+- **Quick Search** - Quickly search websites such as eBay and other retailers
+- **Quick Bookmarks** - Instantly go to any of your bookmarks. (most recent)
+- **Browse History** - Insantly jump back into any closed tab
+- **Tab Management** - See all open tabs and switch between them with a few keystrokes
+- **eBay Categories** - Get instant eBay category suggestions with copy-to-clipboard functionality
+
+### 🖱️ Enhanced Context Menu (New in v1.0.3)
+
+Right-click any selected text to instantly search across multiple platforms:
+
+- Search UPCs on UPCItemDB
+- Search UPCs on Google
+- Search products on PriceCharting
+- Search MPNs (Manufacturer Part Numbers) on Google
+
+### ⚙️ Customizable Experience
+
+- **Settings Panel** - Press `CMD+Shift+O` to configure which features are enabled
+- **Source Ordering** - Customize the order of search providers in your command menu
+- **Quick Links** - Access custom links with intelligent 30-minute caching for instant loading
+
+### 🚀 Smart Performance
+
+- **Instant Loading** - Smart caching system returns results immediately while refreshing in the background
+- **Keyboard Navigation** - Full keyboard support with intuitive shortcuts
+- **Background Updates** - Seamless data refresh without interrupting your workflow
+
+## Getting Started
+
+1. **Install** - Download and install the extension (Chrome Web Store coming soon)
+2. **Pin the Icon** - Pin the extension icon to your toolbar for easy access
+3. **Try the Command Palette** - Press `CMD+Shift+K` to open and explore all features
+4. **Customize** - Use `CMD+Shift+O` to personalize your settings and feature preferences
+
+## Keyboard Shortcuts
+
+- `CMD+Shift+K` / `CTRL+Shift+K` - Open command palette
+- `CMD+Shift+O` / `CTRL+Shift+O` - Open settings
+- `Backspace` - Exit search providers in command menu
+- `Arrow Keys` - Navigate through options
+- `Enter` - Select item or copy eBay categories to clipboard
+
+## Support
+
+Need help? Contact us at support@paymore.com for assistance with installation, features, or troubleshooting.
